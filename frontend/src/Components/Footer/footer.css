@@ -1,0 +1,176 @@
+:root {
+  --Primarycolor: rgb(176, 115, 233);
+  --SecondaryColor: rgb(107, 24, 184);
+  --gradientColor: linear-gradient(to right, rgb(144, 86, 202), rgb(107,24,184));
+  --whiteColorDeam: hsl(0,0%,93%);
+  --blackColor: hsl(201, 33%, 16%);
+}
+
+.footer{
+  width: 100%;
+  position: relative;
+  padding: 2rem 0;
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  .videoDiv{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+   
+
+    video{
+      height: 100%;
+      object-fit: cover;
+     
+      margin-top: 20px;
+
+    }
+    &::after{
+      content: '';
+      height: 100%;
+      object-fit: cover;
+   
+      position: absolute;
+      background-color: rgb(206, 159, 249);
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin-top: 20px;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  .secContent{
+    width: 100%;
+    height: max-content;
+    padding: 2rem initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    row-gap: 2rem;
+    z-index: 100;
+
+    .contactDiv{
+       justify-content: space-between;
+       flex-direction: column;
+       gap: 1rem;
+       .text{
+        small{
+          font-size: 14px;
+          font-weight: 400;
+          color: white;
+        }
+
+        h2{
+          color: white;
+          font-size: 1.8rem;
+        }
+       }
+
+       .inputDiv{
+          width: 100%;
+          gap: 1rem;
+          flex-direction: column;
+
+          input{
+            width: 100%;
+            padding: .5rem .6rem;
+            border-radius: 3rem;
+            border: 1px solid white;
+            outline: none;
+            background: transparent;
+            color: var(--whiteColorDeam);
+
+            &::placeholder{
+              color: var(--whiteColorDeam);
+              opacity: 0.7;
+            }
+          }
+
+          .btn{
+            width: 100%;
+            justify-content: center;
+            color: var(--whiteColorDeam);
+            font-weight: 500;
+            gap: .5rem;
+
+            .icon{
+              font-size: 18px;
+            }
+
+          }
+
+
+       }
+    }
+
+    .footerCard{
+      position: relative;
+      padding: 1rem 1rem 4rem;
+      gap: 2rem;
+      border-radius: 1rem;
+      background: rgb(209, 141, 246);
+      width: 100%;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+
+      .footerIntro{
+        flex-basis: 50%;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        row-gap: .5rem;
+      }
+
+      .logoDiv{
+        .logo{
+          color: var(--blackColor);
+          font-weight: 600;
+          .icon{
+            font-size: 25px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .footerPara{
+        font-size: 14px;
+        color: black;
+      }
+    }
+  }
+  .footerDiv{
+    color: white;
+    font-size: 1.4rem;
+
+  }
+}
+
+/*Media query*/
+/*Unwanted*/
+@media screen and (min-width: 500px) {
+  .footer{
+    .secContent{
+      .footerCard{
+        grid-template-columns: repeat(3,1fr);
+      }
+      .footerDiv{
+        justify-content: space-between;
+        flex-direction: row;
+
+        small{
+          font-size: 14px;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,263 @@
+:root {
+  --Primarycolor: rgb(176, 115, 233);
+  --SecondaryColor: rgb(107, 24, 184);
+  --gradientColor: linear-gradient(to right, rgb(144, 86, 202), rgb(107,24,184));
+  --whiteColorDeam: hsl(0,0%,93%);
+  --blackColor: hsl(201, 33%, 16%);
+}
+
+.logoDiv {
+  display: flex;              /* Aligns the contents in a row */
+  align-items: center;        /* Vertically centers the items */
+  gap: 10px;                  /* Adjusts the spacing between the icon and text */
+}
+
+.logo h1 {
+  color: var(--Primarycolor);
+  font-size: 20px;            /* Adjust the font size to your preference */
+  display: flex;              /* Makes the <h1> content also flexible */
+  align-items: center;        /* Aligns items vertically */
+}
+
+/* Add a class for the zoom effect */
+.navItem {
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navItem.zoomed {
+  transform: scale(1.1); /* Adjust the zoom level */
+}
+
+.navLink {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.navLink:hover {
+  color: var(--Primarycolor);
+}
+
+
+.icons {
+  color: var(--Primarycolor);
+  font-size: 22px;            /* Adjust the size of the globe icon */
+  margin-right: 8px;          /* Adds some space between the icon and the text */
+}
+
+.zoom-effect {
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--whiteColorDeam);
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(109, 114, 115, 0.9);
+
+  .logo{
+    color: var(--blackColor);
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
+    .icon{
+      font-size: 25px;
+      color: var(--Primarycolor);
+      transform: translateY(5px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navBar{
+      position: absolute;
+      background: var(--whiteColorDeam);
+      height: max-content;
+      width: 80%;
+      border-radius: 1rem;
+      top: -500rem;
+      left: 50%;
+      padding: 1rem;
+      transform: translate(-50%);
+      z-index: 2000;
+      box-shadow: 0 2px 4px rgba(2,25,29,0.9);
+      transition: .4s ease-in-out;
+
+      .navLists{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+        padding: .5rem 0;
+
+        .navItem{
+          padding: .5rem 0;
+
+          .navLink{
+            color: black;
+            font-size: 1rem;
+            font-weight: 600;
+            &:hover{
+              color: var(--Primarycolor);
+            }
+          }
+        }
+
+        .btn{
+          margin-top: 1rem;
+
+          a{
+            font-weight: 600;
+            color: var(--whiteColorDeam);
+          }
+        }
+      }
+
+      .closeNavBar{
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        color: var(--SecondaryColor);
+        &:hover{
+          color: var(--Primarycolor);
+        }
+      }
+    }
+
+    .activeNavBar{
+      top: 7rem;
+    }
+  }
+
+  .toggleNavBar{
+    .icon{
+      font-size: 25px;
+      color: var(--SecondaryColor);
+    }
+    &:hover.icon{
+      color: var(--Primarycolor);
+    }
+  }
+}
+
+/*Media Queries*/
+
+@media screen and (min-width: 770px) {
+  .toggleNavBar,.closeNavBar{
+    display: none;
+  }
+
+  .header{
+    padding: 1.5rem 2rem;
+
+    .navBar{
+      .navLists{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        .navItem{
+          .navLink{
+            color: black;
+            padding: 0 0.45rem;
+            font-size: .9rem;
+            font-weight: 500;
+
+            &:hover{
+              color: var(--Primarycolor);
+
+            }
+          }
+        }
+        .btn{
+          margin-left: 1rem;
+          a{
+            color: white;
+            font-weight: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 970px){
+  .header{
+    .navBar{
+      .navLists{
+        .navItem{
+          padding: 0 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1240px){
+  .header{
+    padding: 1rem 0.5rem;
+  }
+}
+
+.userProfile {
+  position: relative;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 3rem;
+}
+
+.userIcon {
+  font-size: 2.5rem;
+  color: #641b8c;
+}
+
+.profileDropdown {
+  position: absolute;
+  top: 3.2rem;
+  right: -50px;
+  background-color: rgb(212, 207, 207);
+  padding: 1.4rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 280px;
+  animation: fadeIn 0.2s ease-in-out;
+  border: 2px solid rgb(64, 6, 68);
+}
+
+.logoutBtn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.logoutBtn:hover {
+  background-color: #f00606;
+}
+
+.lineAboveLogout {
+  border-top: 2px solid rgb(64, 6, 68);
+  margin: 0.5rem 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

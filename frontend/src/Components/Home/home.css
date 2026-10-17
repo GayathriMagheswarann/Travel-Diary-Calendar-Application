@@ -1,0 +1,373 @@
+:root {
+  --Primarycolor: rgb(176, 115, 233);
+  --SecondaryColor: rgb(107, 24, 184);
+  --gradientColor: linear-gradient(to right, rgb(144, 86, 202), rgb(107,24,184));
+  --whiteColorDeam: hsl(0,0%,93%);
+  --blackColor: hsl(201, 33%, 16%);
+}
+
+
+.custom-dropdown {
+  max-width: 390px;
+  position: relative;
+  font-family: sans-serif;
+  margin-top: -15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-label {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 2px;
+  display: block;
+
+}
+
+.dropdown-header {
+  background-color: rgb(207, 184, 210);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: rgb(207, 184, 210);
+  border-radius: 20px;
+  margin: 0;
+  padding-left: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  overflow: hidden; /* 🔥 This is key */
+  z-index: 1000;
+}
+
+.dropdown-list li {
+  padding: 10px 14px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-list li:hover {
+  background-color: rgb(180, 150, 190);
+}
+
+.arrow {
+  margin-left: 10px;
+}
+.clear-btn {
+  margin-left: 10px;
+  cursor: pointer;
+  color: white;
+}
+.error-message {
+  color: rgb(218, 22, 22);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  margin-bottom: -1px;
+  position: absolute; /* This ensures the error message doesn't affect the layout */
+  bottom: -20px; /* Adjust this value based on how far below the input you want the error to appear */
+  left: 0;
+  width: 100%;
+  padding-left: 5px;
+  padding-bottom: -20px;
+}
+
+.cardDiv .custom-dropdown {
+  margin-top: -20px; /* Move input fields up inside the container */
+}
+
+.cardDiv .input {
+  margin-top: -20px; /* Adjusts individual input fields */
+}
+
+.cardDiv .label_total {
+  margin-top: -18px; /* Adjust the label position, if needed */
+}
+
+.dropdown-list li {
+  padding: 8px 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.home{
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(166, 137, 179);
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    mix-blend-mode: hard-light;
+  }
+
+  video{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+  }
+
+  .homeContent{
+    width: 100%;
+    height: 95%;
+    padding: 8rem 2rem 3rem;
+    margin: auto;
+    display: flex;
+    row-gap: 3rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    
+    color: var(--whiteColorDeam);
+    z-index: 100;
+  }
+
+  .textDiv{
+    padding: 2rem 0;
+
+    .smallText{
+      font-size: 13px;
+      position: relative;
+      margin-top: -100px;
+      text-transform: uppercase;
+    }
+
+    .homeTitle{
+      position: relative;
+      font-size: 1.8rem;
+    }
+  }
+  .cardDiv{
+    position: relative;
+    padding: 2rem 1rem;
+    background: var(--whiteColorDeam);
+    border-radius: 15px;
+    gap: 1rem;
+    /*max-width: 1000px;
+    margin: 0 auto;*/
+    min-height: 120px; /* 👈 Add this or increase the value */
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -40px; /* Move the whole cardDiv container up */
+    transition: margin-top 0.3s ease; /* Optional: Smooth transition */
+
+  label{
+    display: block;
+    color: black;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .label_total{
+    justify-content: space-between;
+    align-items: center;
+
+    .total{
+    color: black;
+    font-size: 19px;
+    padding-bottom: 10px;
+  }
+  }
+
+  .input{
+    height: 40px;
+    padding: 0 1rem;
+    background-color: rgb(207, 184, 210);
+    border-radius: 3rem;
+
+    input{
+      background: none;
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 500;
+      &::placeholder{
+        font-size: 14px;
+      }
+    }
+
+    .icon{
+      font-size: 18px;
+      color: var(--SecondaryColor)
+      !important;
+      margin-left: 10px;
+    }
+
+    .input[type=range]{
+      background: rgb(182, 133, 228);
+    }
+  }
+
+  .searchOption{
+    position: absolute;
+    background: rgb(182, 133, 228);
+    width: max-content;
+    bottom: -1.3rem;
+    column-gap: .2rem;
+    padding: 8px 1rem;
+    border-radius: 3rem;
+    left: 50%;
+    transform: translate(-50%);
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover{
+      background: var(--Primarycolor);
+
+    }
+
+    .icon{
+      font-size: 19px;
+    }
+
+    span{
+      font-size: 14px;
+    }
+  }
+}
+  
+  .homeFootIcons{
+    width: 100%;
+    justify-content: space-between;
+
+  }
+
+  .icon{
+    font-size: 20px;
+    margin: 0 5px;
+    color: var(--whiteColorDeam);
+    font-weight: 600;
+    &:hover{
+      color: var(--whiteColorDeam);
+    }
+  }
+}
+
+/*MEDIA QUERY*/
+
+@media screen and (min-width: 500px) {
+  .home{
+    .homeContent{
+      .textDiv{
+        .smallText{
+          font-size: 17px;
+        }
+
+        .homeTitle{
+          position: relative;
+          font-size: 2.3rem;
+          width: max-content;
+
+          &::after{
+            position: absolute;
+            content: '';
+            height: 5px;
+            width: 145px;
+            right: 0;
+            bottom: 5px;
+            z-index: -1;
+          }
+        }
+      }
+
+      .cardDiv{
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+  }
+}
+
+  @media screen and (min-width: 670px) {
+    .home{
+      .homeContent{
+        .cardDiv{
+          padding: 2rem 1rem;
+          grid-template-columns: repeat(3,1fr);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 940px) {
+    .home{
+      height: 80vh;
+    }
+  }
+
+  
+  @media screen and (min-width: 1240px) {
+    .home{
+      height: 80vh;
+
+      .homeContent{
+        padding-left: 0;
+        padding-right: 0;
+
+        .cardDiv{
+          padding: 2rem 1rem;
+          grid-template-columns: repeat(5,1fr);
+          margin-top: -40px;
+
+          .input{
+            margin-bottom: 1rem;
+          }
+
+          .searchOption{
+            bottom: -1rem;
+            padding: 8px 1rem;
+            bottom: -4.5rem;
+
+            span{
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 670px) {
+    .searchOption {
+      bottom: -3rem; /* Push it further below */
+    }
+  }
+  
+  @media screen and (min-width: 940px) {
+    .searchOption {
+      bottom: -4rem;
+    }
+    .cardDiv {
+      grid-template-columns: repeat(4, 1fr); /* For even larger screens, 4 columns */
+    }
+  }
